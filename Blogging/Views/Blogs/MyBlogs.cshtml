@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Blogging.Models.Blog>
+
+@using Microsoft.AspNet.Identity;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<center> <h2> <u> My Blogs </u> </h2> </center>
+
+<p>
+    @Html.ActionLink("Create New Blog", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BlogTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BlogContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OnCreated)
+        </th>
+        
+        
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.UserId == User.Identity.GetUserId())                             //Checking if written by the logged in user
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BlogTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BlogContent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OnCreated)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.BlogId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.BlogId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.BlogId })
+                </td>
+            </tr>
+        }
+    }
+
+</table>
