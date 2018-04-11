@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,6 +48,12 @@
       <HintPath>..\packages\Autofac.Mvc5.3.3.4\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.9.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.11\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.11\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -171,42 +179,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201601281300331_InitialCreate.cs" />
-    <Compile Include="Migrations\201601281300331_InitialCreate.Designer.cs">
-      <DependentUpon>201601281300331_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601281335599_init.cs" />
-    <Compile Include="Migrations\201601281335599_init.Designer.cs">
-      <DependentUpon>201601281335599_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601290701107_init1.cs" />
-    <Compile Include="Migrations\201601290701107_init1.Designer.cs">
-      <DependentUpon>201601290701107_init1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601291233448_initial.cs" />
-    <Compile Include="Migrations\201601291233448_initial.Designer.cs">
-      <DependentUpon>201601291233448_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601291259195_initial1.cs" />
-    <Compile Include="Migrations\201601291259195_initial1.Designer.cs">
-      <DependentUpon>201601291259195_initial1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602010704452_initial2.cs" />
-    <Compile Include="Migrations\201602010704452_initial2.Designer.cs">
-      <DependentUpon>201602010704452_initial2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602010734150_initial3.cs" />
-    <Compile Include="Migrations\201602010734150_initial3.Designer.cs">
-      <DependentUpon>201602010734150_initial3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602010941295_initial4.cs" />
-    <Compile Include="Migrations\201602010941295_initial4.Designer.cs">
-      <DependentUpon>201602010941295_initial4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602020456280_initial5.cs" />
-    <Compile Include="Migrations\201602020456280_initial5.Designer.cs">
-      <DependentUpon>201602020456280_initial5.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AutoFac.cs" />
@@ -241,7 +213,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -290,37 +264,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201601281300331_InitialCreate.resx">
-      <DependentUpon>201601281300331_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201601281335599_init.resx">
-      <DependentUpon>201601281335599_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201601290701107_init1.resx">
-      <DependentUpon>201601290701107_init1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201601291233448_initial.resx">
-      <DependentUpon>201601291233448_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201601291259195_initial1.resx">
-      <DependentUpon>201601291259195_initial1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602010704452_initial2.resx">
-      <DependentUpon>201602010704452_initial2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602010734150_initial3.resx">
-      <DependentUpon>201602010734150_initial3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602010941295_initial4.resx">
-      <DependentUpon>201602010941295_initial4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602020456280_initial5.resx">
-      <DependentUpon>201602020456280_initial5.cs</DependentUpon>
-    </EmbeddedResource>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
