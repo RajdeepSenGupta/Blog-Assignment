@@ -2,5 +2,9 @@ language: csharp
 dist: trusty
 os: linux
 mono: none
-services:
-- docker
+install:
+- dotnet restore ./BlogManagement/Blogging.sln
+script:
+ - dotnet --info
+ - dotnet build ./BlogManagement/Blogging.sln
+ - ls -a
