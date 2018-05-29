@@ -1,0 +1,8 @@
+language: csharp 
+dist: trusty
+os: linux
+mono: none
+services:
+- docker
+install:
+- dotnet restore ./Blogging.sln
